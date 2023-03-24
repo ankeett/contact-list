@@ -1,0 +1,64 @@
+extends layout.pug
+
+block content
+    h1 Create Contact 
+    form(action='/create', method='post')
+        fieldset 
+            legend Basic Info
+            label(for='firstname') First Name:
+            input(type='text', name='firstname')
+            br
+
+            label(for='lastname') Last Name:
+            input(type='text', name='lastname')
+            br
+
+            label(for='phone') Phone:
+            input(type='text', name='phone')
+            br
+
+            label(for='email') Email:
+            input(type='text', name='email')
+            br
+
+        fieldset 
+            legend Address
+            label(for='street') Street:
+            input(type='text', name='street')
+            br
+
+            label(for='city') City:
+            input(type='text', name='city')
+            br
+
+            label(for='state') State:
+            input(type='text', name='state')
+            br
+
+            label(for='zip') Zip:
+            input(type='text', name='zip')
+            br
+
+            label(for='country') Country:
+            input(type='text', name='country')
+            br
+
+        fieldset 
+            legend Contact Preferences
+            input(type='checkbox', name='contact_by_phone')
+            label(for ='contact_by_phone') Contact by Phone
+            br
+
+            input(type='checkbox', name='contact_by_email')
+            label(for ='contact_by_email') Contact by Email
+            br
+
+            input(type='checkbox', name='contact_by_mail')
+            label(for ='contact_by_mail') Contact by Mail
+            br
+       
+        button(type='submit') Add
+        a(href='/') Cancel
+        if message 
+            p #{message}
+    

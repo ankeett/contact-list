@@ -1,0 +1,64 @@
+extends layout.pug 
+
+block content
+    h1 Update Content
+    form(action='/'+contact.id+'/edit', method='post')
+        fieldset 
+            legend Basic Info
+            label(for='firstname') First Name:
+            input(type='text', name='firstname', value=contact.firstname)
+            br
+
+            label(for='lastname') Last Name:
+            input(type='text', name='lastname', value=contact.lastname)
+            br
+
+            label(for='phone') Phone:
+            input(type='text', name='phone', value=contact.phone)
+            br
+
+            label(for='email') Email:
+            input(type='text', name='email', value=contact.email)
+            br
+
+        fieldset 
+            legend Address
+            label(for='street') Street:
+            input(type='text', name='street', value=contact.street)
+            br
+
+            label(for='city') City:
+            input(type='text', name='city', value=contact.city)
+            br
+
+            label(for='state') State:
+            input(type='text', name='state', value=contact.state)
+            br
+
+            label(for='zip') Zip:
+            input(type='text', name='zip', value=contact.zip)
+            br
+
+            label(for='country') Country:
+            input(type='text', name='country', value=contact.country)
+            br
+
+        fieldset 
+            legend Contact Preferences
+            input(type='checkbox', name='contact_by_phone', checked=contact.contact_by_phone == 1)
+            label(for ='contact_by_phone') Contact by Phone
+            br
+
+            input(type='checkbox', name='contact_by_email', checked=contact.contact_by_email == 1)
+            label(for ='contact_by_email') Contact by Email
+            br
+
+            input(type='checkbox', name='contact_by_mail', checked=contact.contact_by_mail == 1)
+            label(for ='contact_by_mail') Contact by Mail
+            br
+       
+        button(type='submit') Update
+        a(href='/') Cancel
+        if message 
+            p #{message}
+    
